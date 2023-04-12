@@ -6,21 +6,49 @@ import Playstation from './components/paginas/Playstation';
 import Swittch from './components/paginas/Swittch';
 import Xbox from './components/paginas/Xbox';
 import Home from './components/paginas/Home';
-
+import News from './components/paginas/News';
+import { useState } from 'react';
+import { Header } from './components/Header';
+import { ProductList } from './components/ProductList';
 import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
+import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+import Carrito from './components/Carrito';
+import Auth0 from './components/Auth0';
+import NotFound from './components/paginas/NotFound';
+
 
 const App = () => {
-    const { isAuthenticated, logout, user } = useAuth0();
+    
 
+    
+    
     return (
-        <div >
-             <Home/>
-            <span>Hi, {user.name} <img width={50} height={50} src={user.picture} alt="" /></span>
-            <div>Logged: {String(isAuthenticated)}</div>
-            <div>Verified: {String(user.email_verified)}</div>
-            <button onClick={logout}>Logout</button>
-          
-        </div>
+        <div className='App'>
+             
+
+   <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route exact path="/Home" element={<Home/>}/>
+        <Route exact path="/News" element={<News/>}/>
+        <Route exact path="/Playstation" element={<Playstation/>}/>
+        <Route exact path="/Xbox" element={<Xbox/>}/>
+        <Route exact path="/Swittch" element={<Swittch/>}/>
+        <Route exact path="/Carrito" element={<Carrito/>}/>
+        <Route exact path="/Auth0" element={<Auth0/>}/>
+        <Route exact path="*" element={<NotFound/>}/>
+        
+       </Routes>
+    </Router>
+
+    
+             
+            
+       
+               
+
+    </div>   
+
     );
  
 };
