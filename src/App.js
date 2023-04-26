@@ -1,27 +1,26 @@
 
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from './components/Navbar';
+
 import Playstation from './components/paginas/Playstation';
 import Swittch from './components/paginas/Swittch';
 import Xbox from './components/paginas/Xbox';
 import Home from './components/paginas/Home';
 import News from './components/paginas/News';
-import { useState } from 'react';
-import { Header } from './components/Header';
-import { ProductList } from './components/ProductList';
-import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
-import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+import {  withAuthenticationRequired } from '@auth0/auth0-react';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Carrito from './components/Carrito';
 import Auth0 from './components/Auth0';
-import NotFound from './components/paginas/NotFound';
+
+import MetaData from './components/paginas/MetaData';
+import Users from './components/paginas/Users';
+
 
 
 const App = () => {
     
 
-    
-    
+
     return (
         <div className='App'>
              
@@ -36,8 +35,8 @@ const App = () => {
         <Route exact path="/Swittch" element={<Swittch/>}/>
         <Route exact path="/Carrito" element={<Carrito/>}/>
         <Route exact path="/Auth0" element={<Auth0/>}/>
-        <Route exact path="*" element={<NotFound/>}/>
-        
+        <Route exact path="/MetaData" element={<MetaData/>}/>
+        <Route exact path="/Users" element={<Users/>}/>
        </Routes>
     </Router>
 

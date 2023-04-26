@@ -53,6 +53,11 @@ const Navbar = () => {
         </li>
         
         </ul>
+        <ul>
+          <li>
+        <a className="nav-link" href="/MetaData">MetaData</a>
+        </li>
+        </ul>
         </ul> 
     </div>
   </div>
