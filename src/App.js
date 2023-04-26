@@ -12,8 +12,6 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Carrito from './components/Carrito';
 import Auth0 from './components/Auth0';
 
-import MetaData from './components/paginas/MetaData';
-import Users from './components/paginas/Users';
 
 
 
@@ -35,8 +33,6 @@ const App = () => {
         <Route exact path="/Swittch" element={<Swittch/>}/>
         <Route exact path="/Carrito" element={<Carrito/>}/>
         <Route exact path="/Auth0" element={<Auth0/>}/>
-        <Route exact path="/MetaData" element={<MetaData/>}/>
-        <Route exact path="/Users" element={<Users/>}/>
        </Routes>
     </Router>
 
