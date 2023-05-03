@@ -6,13 +6,15 @@ import { ProductList2 } from './ProductList2';
 import { ProductList3 } from './ProductList3';
 
 
+
+
 function Carrito() {
     const [allProducts, setAllProducts] = useState([]);
 	const [total, setTotal] = useState(0);
 	const [countProducts, setCountProducts] = useState(0);
 
   return (
-     <>
+     <div>
        <Header
 				allProducts={allProducts}
 				setAllProducts={setAllProducts}
@@ -46,10 +48,16 @@ function Carrito() {
 				countProducts={countProducts}
 				setCountProducts={setCountProducts}
 			/>
+                
 
+    </div>
 
-    </>
+	
   )
+  
+
 }
+
+
 
 export default Carrito

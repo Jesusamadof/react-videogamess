@@ -1,0 +1,43 @@
+/* Estilos para el formulario de pago */
+form {
+	max-width: 500px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+  }
+  
+  label {
+	margin: 10px 0;
+	font-weight: bold;
+	display: block;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	margin-bottom: 20px;
+	width: 100%;
+  }
+  
+  textarea {
+	height: 100px;
+  }
+  
+  button[type="submit"] {
+	padding: 10px;
+	background-color: #2196F3;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 1.2em;
+  }
+  
+  button[type="submit"]:hover {
+	background-color: #0D47A1;
+  }

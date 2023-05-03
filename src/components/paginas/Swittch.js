@@ -1,6 +1,5 @@
 import React from 'react';
 import { ProductList } from '../ProductList';
-import {Header} from '../Header';
 import { useAuth0 } from '@auth0/auth0-react';
 
 const Swittch = () => {

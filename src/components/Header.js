@@ -1,23 +1,29 @@
 import React from 'react'
 import { useState } from 'react';
 
-export const Header = ({
+
+
+ const Header = ({
 	allProducts,
 	setAllProducts,
 	total,
 	countProducts,
 	setCountProducts,
 	setTotal,
+	
 }) => {
 
+
 	const [active, setActive] = useState(false);
+
+
 
 	const onDeleteProduct = product => {
 		const results = allProducts.filter(
 			item => item.id !== product.id
 		);
 
-		setTotal(total - product.price * product.quantity);
+	    setTotal(total - product.price * product.quantity);
 		setCountProducts(countProducts - product.quantity);
 		setAllProducts(results);
 	};
@@ -27,6 +33,41 @@ export const Header = ({
 		setTotal(0);
 		setCountProducts(0);
 	};
+	//esto se acaba de agregar
+
+
+	const handlePaypalPayment = () => {
+		// Crea el objeto de pago con los detalles de la compra
+		const payment = {
+		  amount: {
+			currency_code: "USD",
+			value: total.toFixed(2) // Redondea el total a 2 decimales
+		  },
+		  items: allProducts.map(product => ({
+			name: product.nameProduct,
+			quantity: product.quantity,
+			unit_amount: {
+			  currency_code: "USD",
+			  value: product.price.toFixed(2) // Redondea el precio del producto a 2 decimales
+			}
+		  }))
+		};
+	
+		// Abre la ventana emergente de PayPal con los detalles del pago
+		window.paypal.Buttons({
+		  createOrder: (data, actions) => {
+			return actions.order.create({
+			  purchase_units: [payment]
+			});
+		  },
+		  onApprove: (data, actions) => {
+			// Maneja el pago aprobado
+			console.log(data);
+			console.log(actions);
+		  }
+		}).render('#paypal-button-container');
+	  };
+	 
 
   return (
     
@@ -102,9 +143,20 @@ export const Header = ({
 								<span className='total-pagar'>${total}</span>
 							</div>
 
+ 							<button >
+							 <a href="paypal.html">Realizar tu pago</a>
+						    
+							</button >
+							
+							<button >
+							<a href="/Paypal">Realiar pago jsx</a>
+                                       
+                            </button>
+
  							<button className='btn-clear-all' onClick={onCleanCart}>
-								Vaciar Carrito
+							      vaciar carrito
 							</button>
+
 						</>
 					) : (
 						<p className='cart-empty'>El carrito está vacío</p>
@@ -113,5 +165,13 @@ export const Header = ({
 			</div>
 		</header>
 
+
   )
-}
+  
+
+					}
+					
+                  
+					export { Header };
+
+ 
